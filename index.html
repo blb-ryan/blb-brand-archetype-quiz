@@ -625,10 +625,10 @@
 <!-- ══════════════════ START SCREEN ══════════════════ -->
 <div class="screen active" id="startScreen">
   <div class="start-wrap">
-    <span class="eyebrow">A Brave Little Beast Tool</span>
+    <span class="eyebrow">A Tool From Brave Little Beast</span>
     <h1>What's Your Brand Archetype?</h1>
-    <p>A brand archetype humanizes your brand. It borrows from established character types in human storytelling to help define your brand's personality and character. <strong>Each archetype acts as a starting point for defining a brand's uniqueness.</strong></p>
-    <p class="start-question">How do you want your brand to be perceived by your ideal buyers?</p>
+    <p>A brand archetype helps humanize your brand by drawing on timeless character types from storytelling. It begins to define your brand's personality and character by <strong>creating a filter for desired brand perception.</strong></p>
+    <p class="start-question">Ready to shape how your brand is perceived by your ideal buyers?</p>
     <button class="btn-start" onclick="startQuiz()">Find My Archetype &rarr;</button>
     <div class="start-meta">24 questions &nbsp;&middot;&nbsp; ~12 minutes</div>
     <div class="start-archetypes">
@@ -652,7 +652,7 @@
 <div class="screen" id="intakeScreen">
   <div class="intake-wrap">
     <span class="eyebrow">Before We Begin</span>
-    <h2>Tell us about your brand.</h2>
+    <h2>Let's collect a few details about you.</h2>
     <p class="intake-sub">We'll include this in your results summary.</p>
     <div class="intake-form">
       <div class="field-group">
@@ -688,7 +688,7 @@
     <div class="results-header">
       <span class="eyebrow">Your Results</span>
       <h2 id="resultsTitle"></h2>
-      <p>Here's what your answers reveal. Strong brands don't pick an archetype — they own one. Use this as a compass, not a ceiling.</p>
+      <p>Here's what your answers reveal about how you want to be perceived by your ideal customers. <strong>Use this as a compass, not a ceiling.</strong></p>
     </div>
     <div class="top-cards" id="topCards"></div>
     <div class="full-scores">
@@ -711,7 +711,7 @@ const ARCHETYPES = {
     name: "The Innocent",
     aliases: "Child · Optimist · Muse · Traditionalist",
     motto: '"Life is good"',
-    desc: "The Innocent doesn't overthink it. Life is simple, people are good, and things work out. This archetype radiates warmth and sincerity — and it connects because most people secretly want to believe that too.",
+    desc: "The Innocent doesn't overthink it. Life is simple, people are good, and things work out. This archetype radiates warmth and sincerity, and it connects because most people secretly want to believe that too.",
     strengths: ["Sweet", "Charming", "Sense of wonder", "Cheerful", "Playful", "Warm-Hearted"],
     voice: ["Simple", "Concise", "Cheerful", "Optimistic"],
     goal: "To achieve a happy, simple, and pure life by spreading optimism and doing the right thing.",
@@ -733,7 +733,7 @@ const ARCHETYPES = {
     name: "The Hero",
     aliases: "Protector · Champion · Warrior · Dragon Slayer",
     motto: '"Where there\'s a will, there\'s a way"',
-    desc: "The Hero shows up when the stakes are high and gets it done. Not flashy, just relentless. This archetype attracts buyers who want to feel capable — not coddled.",
+    desc: "The Hero shows up when the stakes are high and gets it done. Not flashy, just relentless. This archetype attracts buyers who want to feel capable, not coddled.",
     strengths: ["Brave", "Self-Disciplined", "Direct", "Tenacious"],
     voice: ["Motivational", "Confident", "Empowering"],
     goal: "To save the day and protect others from harm through courageous acts and self-sacrifice.",
@@ -744,7 +744,7 @@ const ARCHETYPES = {
     name: "The Caregiver",
     aliases: "Nurturer · Altruist · Helper · Mother",
     motto: '"Love your neighbor as yourself"',
-    desc: "The Caregiver is the brand people turn to when something actually matters. Compassionate, steady, selfless. They don't just solve problems — they make people feel taken care of.",
+    desc: "The Caregiver is the brand people turn to when something actually matters. Compassionate, steady, selfless. They don't just solve problems, they make people feel taken care of.",
     strengths: ["Compassion", "Generosity", "Selflessness", "Empathy"],
     voice: ["Considerate", "Thoughtful", "Kind", "Encouraging"],
     goal: "To help and heal others by providing for their needs.",
@@ -755,7 +755,7 @@ const ARCHETYPES = {
     name: "The Explorer",
     aliases: "Pioneer · Adventurer · Seeker · Iconoclast",
     motto: '"Live adventurously"',
-    desc: "The Explorer goes where others haven't. Independent, curious, always ahead of the curve. This archetype attracts buyers who don't want to be told where to go — they want a guide for the road they're already on.",
+    desc: "The Explorer goes where others haven't. Independent, curious, always ahead of the curve. This archetype attracts buyers who don't want to be told where to go, they want a guide for the road they're already on.",
     strengths: ["Self-motivating", "Ambitious", "Adventurous", "Authentic"],
     voice: ["Open-minded", "Resourceful", "Cultured", "Freeing"],
     goal: "To find out who you are through exploring the world.",
@@ -766,7 +766,7 @@ const ARCHETYPES = {
     name: "The Lover",
     aliases: "Romantic · Hedonist · Pleasure-Seeker",
     motto: '"Follow your bliss"',
-    desc: "The Lover makes everything feel like an occasion. Sensory, intimate, passionate. This archetype builds deep loyalty because it connects with what people actually desire — not just what they say they want.",
+    desc: "The Lover makes everything feel like an occasion. Sensory, intimate, passionate. This archetype builds deep loyalty because it connects with what people actually desire, not just what they say they want.",
     strengths: ["Passionate", "Great with people", "Committed", "Spellbinding"],
     voice: ["Affectionate", "Sensory", "Beautiful", "Emotional"],
     goal: "To pursue perfect enjoyment through physical and emotional experience.",
@@ -777,7 +777,7 @@ const ARCHETYPES = {
     name: "The Rebel",
     aliases: "Maverick · Outlaw · Revolutionary · Misfit",
     motto: '"Rules are made to be broken"',
-    desc: "The Rebel doesn't ask permission. This archetype disrupts industries, challenges assumptions, and builds fierce loyalty by saying out loud what everyone else is already thinking. Buyers don't follow a Rebel — they join one.",
+    desc: "The Rebel doesn't ask permission. This archetype disrupts industries, challenges assumptions, and builds fierce loyalty by saying out loud what everyone else is already thinking. Buyers don't follow a Rebel; they join one.",
     strengths: ["Confident", "Risk-taker", "Charismatic", "Street smart"],
     voice: ["Bold", "Candid", "Raw", "Honest"],
     goal: "To rise up in the face of opposition and challenge the status quo.",
@@ -788,7 +788,7 @@ const ARCHETYPES = {
     name: "The Creator",
     aliases: "Innovator · Inventor · Designer · Artist",
     motto: '"Imagine the possibilities"',
-    desc: "The Creator is allergic to mediocrity. Everything this archetype touches has to be original, intentional, and lasting. They attract buyers who can tell the difference — and care deeply that someone else does too.",
+    desc: "The Creator is allergic to mediocrity. Everything this archetype touches has to be original, intentional, and lasting. They attract buyers who can tell the difference, and care deeply that someone else does too.",
     strengths: ["Creative", "Imaginative", "Visionary", "Quirky", "Individual"],
     voice: ["Descriptive", "Visual", "Symbolic"],
     goal: "To realize a grand vision and create things of enduring beauty and value.",
@@ -799,7 +799,7 @@ const ARCHETYPES = {
     name: "The Magician",
     aliases: "Visionary · Transformer · Wizard · Catalyst",
     motto: '"Make dreams come true"',
-    desc: "The Magician makes the impossible feel inevitable. Visionary, catalytic, deeply inspiring. This archetype doesn't just solve problems — it reframes what a problem even is.",
+    desc: "The Magician makes the impossible feel inevitable. Visionary, catalytic, deeply inspiring. This archetype doesn't just solve problems, it reframes what a problem even is.",
     strengths: ["Empowering", "Charismatic", "Fascinating", "Spirited"],
     voice: ["Expansive", "Moving", "Articulate", "Story-Rich"],
     goal: "To make dreams come true by turning problems into opportunities.",
@@ -810,7 +810,7 @@ const ARCHETYPES = {
     name: "The Ruler",
     aliases: "Boss · Leader · Power Broker · King or Queen",
     motto: '"Control is power"',
-    desc: "The Ruler sets the standard — and then meets it. Commanding, meticulous, unapologetically premium. Buyers don't come to a Ruler for options. They come for the answer.",
+    desc: "The Ruler sets the standard, and then meets it. Commanding, meticulous, unapologetically premium. Buyers don't come to a Ruler for options. They come for the answer.",
     strengths: ["Productive", "Responsible", "Logical", "Confident"],
     voice: ["Refined", "Articulate", "Authoritative"],
     goal: "To create a prosperous, stable community defined by security and order.",
@@ -821,7 +821,7 @@ const ARCHETYPES = {
     name: "The Sage",
     aliases: "Philosopher · Teacher · Guru · Expert",
     motto: '"To know is to grow"',
-    desc: "The Sage knows things — and proves it. Built on expertise, research, and trust, this archetype earns loyalty by being right more often than anyone else in the room.",
+    desc: "The Sage knows things, and proves it. Built on expertise, research, and trust, this archetype earns loyalty by being right more often than anyone else in the room.",
     strengths: ["Objective", "Diligent", "Detail-oriented", "Zealous"],
     voice: ["Dignified", "Wise", "Curious", "Intelligent"],
     goal: "To understand the truth and teach others what you know.",
@@ -832,7 +832,7 @@ const ARCHETYPES = {
     name: "The Jester",
     aliases: "Entertainer · Provocateur · Performer",
     motto: '"Have fun"',
-    desc: "The Jester makes the world lighter — and people remember that. Funny, fast, and refreshingly human. It's harder to trust a brand that can't laugh. It's easier to love one that can.",
+    desc: "The Jester makes the world lighter, and people remember that. Funny, fast, and refreshingly human. It's harder to trust a brand that can't laugh. It's easier to love one that can.",
     strengths: ["Life of the party", "Creates fun", "Energetic", "Entertaining"],
     voice: ["Funny", "Witty", "Enthusiastic", "Self-deprecating"],
     goal: "To live in the moment and lighten up the world through humor and fun.",
@@ -857,7 +857,7 @@ const QUESTIONS = [
   {
     q: "When buyers think about your brand, they feel...",
     opts: [
-      { text: "Like they belong here — part of something real.", arc: "Citizen" },
+      { text: "Like they belong here and are part of something real.", arc: "Citizen" },
       { text: "Cared for, supported, and genuinely looked after.", arc: "Caregiver" },
       { text: "Free to explore and discover who they really are.", arc: "Explorer" },
       { text: "Like something magical or transformational is possible.", arc: "Magician" }
@@ -877,7 +877,7 @@ const QUESTIONS = [
     opts: [
       { text: "We honor and protect what's good, true, and pure.", arc: "Innocent" },
       { text: "We work within systems to make things better for everyone.", arc: "Caregiver" },
-      { text: "We disrupt it — sometimes blowing it up entirely.", arc: "Rebel" },
+      { text: "We disrupt it, sometimes blowing it up entirely.", arc: "Rebel" },
       { text: "We study it carefully before recommending a better path.", arc: "Sage" }
     ]
   },
@@ -887,7 +887,7 @@ const QUESTIONS = [
       { text: "Make them feel capable and inspired to tackle anything.", arc: "Hero" },
       { text: "Understand and speak to their deepest desires.", arc: "Lover" },
       { text: "Create things with a distinctive vision and craft.", arc: "Creator" },
-      { text: "Help them see the world — and themselves — differently.", arc: "Magician" }
+      { text: "Help them see the world, and themselves, differently.", arc: "Magician" }
     ]
   },
   {
@@ -920,10 +920,10 @@ const QUESTIONS = [
   {
     q: "What does your brand value most deeply?",
     opts: [
-      { text: "Belonging — making people feel like they're part of something.", arc: "Citizen" },
-      { text: "Service — showing up for others, no matter what.", arc: "Caregiver" },
-      { text: "Freedom — the permission to go your own way.", arc: "Explorer" },
-      { text: "Passion — the richness and depth of full human experience.", arc: "Lover" }
+      { text: "Belonging: making people feel like they're part of something.", arc: "Citizen" },
+      { text: "Service: showing up for others, no matter what.", arc: "Caregiver" },
+      { text: "Freedom: the permission to go your own way.", arc: "Explorer" },
+      { text: "Passion: the richness and depth of full human experience.", arc: "Lover" }
     ]
   },
   {
@@ -958,7 +958,7 @@ const QUESTIONS = [
     opts: [
       { text: "Losing people's sense of safety or trust in you.", arc: "Innocent" },
       { text: "Being seen as elitist, out of touch, or exclusive.", arc: "Citizen" },
-      { text: "Becoming just like everyone else — irrelevant and safe.", arc: "Rebel" },
+      { text: "Becoming just like everyone else; irrelevant and safe.", arc: "Rebel" },
       { text: "Producing something ordinary or forgettable.", arc: "Creator" }
     ]
   },
@@ -974,7 +974,7 @@ const QUESTIONS = [
   {
     q: "When you think about your brand's legacy, you want to be remembered for...",
     opts: [
-      { text: "The way you made people feel — seen, desired, and special.", arc: "Lover" },
+      { text: "The way you made people feel: seen, desired, and special.", arc: "Lover" },
       { text: "The courage you showed and the battles you fought.", arc: "Hero" },
       { text: "Sparking a revolution and changing the conversation.", arc: "Rebel" },
       { text: "Teaching people something real and true.", arc: "Sage" }
@@ -983,8 +983,8 @@ const QUESTIONS = [
   {
     q: "Your team is most energized when...",
     opts: [
-      { text: "The problem seems impossible and everything is at stake.", arc: "Hero" },
-      { text: "A rule clearly needs to be broken and you're the one to do it.", arc: "Rebel" },
+      { text: "The problem seems impossible, and everything is at stake.", arc: "Hero" },
+      { text: "A rule clearly needs to be broken, and you're the one to do it.", arc: "Rebel" },
       { text: "You have a blank canvas and total creative freedom.", arc: "Creator" },
       { text: "You can see how your work is going to change someone's life.", arc: "Magician" }
     ]
@@ -1010,10 +1010,10 @@ const QUESTIONS = [
   {
     q: "The primary emotion your brand wants to evoke is...",
     opts: [
-      { text: "Safety — a sense that everything is going to be okay.", arc: "Innocent" },
-      { text: "Desire — a deep pull toward beauty, pleasure, and connection.", arc: "Lover" },
-      { text: "Awe — the feeling that something extraordinary is happening.", arc: "Magician" },
-      { text: "Pride — the satisfaction of rising to your very best self.", arc: "Hero" }
+      { text: "Safety: a sense that everything is going to be okay.", arc: "Innocent" },
+      { text: "Desire: a deep pull toward beauty, pleasure, and connection.", arc: "Lover" },
+      { text: "Awe: the feeling that something extraordinary is happening.", arc: "Magician" },
+      { text: "Pride: the satisfaction of rising to your very best self.", arc: "Hero" }
     ]
   },
   {
@@ -1028,7 +1028,7 @@ const QUESTIONS = [
   {
     q: "When a competitor is clearly doing something wrong in your space, your brand's instinct is to...",
     opts: [
-      { text: "Call it out loud and clear — the industry needs to hear it.", arc: "Rebel" },
+      { text: "Call it out loud and clear; the industry needs to hear it.", arc: "Rebel" },
       { text: "Study it deeply and offer a smarter, more informed alternative.", arc: "Sage" },
       { text: "Show up with more care and support than anyone else is offering.", arc: "Caregiver" },
       { text: "Explore a completely different angle that nobody has tried yet.", arc: "Explorer" }
