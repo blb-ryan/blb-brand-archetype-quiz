@@ -664,6 +664,11 @@
         <label>Company Name</label>
         <input type="text" id="clientCompany" placeholder="Acme Co." autocomplete="organization">
       </div>
+      <div class="field-group">
+        <label>Your Email <span style="color:var(--accent)">*</span></label>
+        <input type="email" id="clientEmail" placeholder="jane@example.com" autocomplete="email">
+        <div class="intake-required" id="emailError">Please enter your email to continue.</div>
+      </div>
       <button class="btn-start" onclick="beginQuiz()">Start Assessment &rarr;</button>
     </div>
   </div>
@@ -1089,6 +1094,7 @@ let answers = [];
 let autoTimer = null;
 let clientName = '';
 let clientCompany = '';
+let clientEmail = '';
 
 function initState() {
   current = 0;
@@ -1105,16 +1111,30 @@ function startQuiz() {
 
 function beginQuiz() {
   const nameEl    = document.getElementById('clientName');
-  const errorEl   = document.getElementById('nameError');
+  const nameError = document.getElementById('nameError');
+  const emailEl   = document.getElementById('clientEmail');
+  const emailError= document.getElementById('emailError');
+  let valid = true;
   if (!nameEl.value.trim()) {
     nameEl.style.borderColor = 'var(--accent)';
-    errorEl.classList.add('show');
+    nameError.classList.add('show');
     nameEl.focus();
-    return;
+    valid = false;
+  } else {
+    nameError.classList.remove('show');
   }
-  errorEl.classList.remove('show');
+  if (!emailEl.value.trim() || !emailEl.value.includes('@')) {
+    emailEl.style.borderColor = 'var(--accent)';
+    emailError.classList.add('show');
+    if (valid) emailEl.focus();
+    valid = false;
+  } else {
+    emailError.classList.remove('show');
+  }
+  if (!valid) return;
   clientName    = nameEl.value.trim();
   clientCompany = document.getElementById('clientCompany').value.trim();
+  clientEmail   = emailEl.value.trim();
   initState();
   hide('intakeScreen');
   show('questionScreen');
@@ -1300,8 +1320,10 @@ function restartQuiz() {
   show('startScreen');
   clientName = '';
   clientCompany = '';
+  clientEmail = '';
   document.getElementById('clientName').value = '';
   document.getElementById('clientCompany').value = '';
+  document.getElementById('clientEmail').value = '';
   initState();
 }
 
@@ -1377,15 +1399,23 @@ function sendResultsEmail(sorted) {
     return;
   }
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-    to_email:    RESULTS_TO_EMAIL,
+  const payload = {
     client_name: clientName,
     company:     clientCompany || 'Not provided',
     archetype_1: ARCHETYPES[sorted[0][0]].name,
     archetype_2: ARCHETYPES[sorted[1][0]].name,
     email_body:  buildEmailHTML(sorted, clientName, clientCompany)
-  }).then(() => console.log('Results sent.'))
-    .catch(err  => console.error('Email error:', err));
+  };
+  // Send to BLB
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { ...payload, to_email: RESULTS_TO_EMAIL })
+    .then(() => console.log('Results sent to BLB.'))
+    .catch(err  => console.error('Email error (BLB):', err));
+  // Send copy to client
+  if (clientEmail) {
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { ...payload, to_email: clientEmail })
+      .then(() => console.log('Results sent to client.'))
+      .catch(err  => console.error('Email error (client):', err));
+  }
 }
 </script>
 </body>
